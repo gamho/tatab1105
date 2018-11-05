@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.bit.tatab.board.dao.BoardDAO">
+ 
+ 	<!-- projectManage 조회 -->
+ 	<select id="selectAllProjectManage" resultType="ProjectVO">
+ 		select * from PRJ_T where project_name = #{projectName}	
+ 	</select>
+ 	
+ 	<!-- PRJ_T update -->
+ 	<update id="updatePRJ_T" parameterType="ProjectVO">
+ 		update PRJ_T
+ 		set project_name = #{updateName}, 
+ 		project_comment = #{updateDescription}
+ 		where project_name = #{projectName}
+ 	</update>
+ 	
+ 	<!-- Project_List_T update -->
+ 	<update id="updateProject_List" parameterType="ProjectVO">
+ 		update PROJECT_LIST_T	
+ 		set project_name = #{updateName}
+ 		where project_name = #{projectName}
+ 	</update>
+ 	
+ </mapper>
